@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:loggy/loggy.dart';
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
@@ -14,6 +13,7 @@ class RandomWords extends StatefulWidget {
 class _RandomWordsState extends State<RandomWords> {
   String _theState = "";
   int _actualWordType = 0;
+  // ignore: unused_field
   int _seleccion = 0;
   int _contador = 0;
   Color colortexto = Colors.white;
