@@ -8,8 +8,13 @@ void main() {
       showColors: true,
     ),
   );
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.pink,
+      ),
       title: "RandomWords",
-      home: RandomWords()));
+      home: const RandomWords()
+      ));
 }
