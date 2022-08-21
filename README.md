@@ -1,9 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8237899&assignment_repo_type=AssignmentRepo)
-# f_template_juego_taller1
+# f_template_juego_taller1 Arnaldo BR
 
-Started code
+https://user-images.githubusercontent.com/83561253/185795150-ddb11fa1-2196-4af1-be7b-f2a3eb530198.mp4
 
-<img src="demo.gif" width="300" />
-
-Complete code:
-https://github.com/augustosalazar/f_solution_juego_taller1
