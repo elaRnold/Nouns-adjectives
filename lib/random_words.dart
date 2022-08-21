@@ -16,7 +16,6 @@ class _RandomWordsState extends State<RandomWords> {
   // ignore: unused_field
   int _seleccion = 0;
   int _contador = 0;
-  Color colortexto = Colors.white;
   Color color1 = Colors.blue;
   Color color2 = Colors.blue;
   final _random = Random();
