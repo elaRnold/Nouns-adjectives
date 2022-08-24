@@ -48,169 +48,144 @@ class _RandomWordsState extends State<RandomWords> {
 
   void _onPressed(_seleccion) {
     if (_actualWordType == _seleccion) {
-      _contador+=10;
+      _contador += 10;
       setState(() {
-      color1 = Colors.green;
-      color2 = Colors.purple;
+        color1 = Colors.green;
+        color2 = Colors.purple;
       });
-      
-          Timer(const Duration(milliseconds: 100), () {
-            setState(() {
-              color1 = Colors.purple;
-              color2 = Colors.green;
-            });
-          });
 
-          Timer(const Duration(milliseconds: 200), () {
-            setState(() {
-              color1 = Colors.green;
-              color2 = Colors.purple;
-            });
-          });
+      Timer(const Duration(milliseconds: 100), () {
+        setState(() {
+          color1 = Colors.purple;
+          color2 = Colors.green;
+        });
+      });
 
-          Timer(const Duration(milliseconds: 300), () {
-            setState(() {
-              color1 = Colors.purple;
-              color2 = Colors.green;
-            });
-          });
+      Timer(const Duration(milliseconds: 200), () {
+        setState(() {
+          color1 = Colors.green;
+          color2 = Colors.purple;
+        });
+      });
 
-          Timer(const Duration(milliseconds: 400), () {
-            setState(() {
-              color1 = Colors.blue;
-              color2 = Colors.blue;
-            });
-          });
+      Timer(const Duration(milliseconds: 300), () {
+        setState(() {
+          color1 = Colors.purple;
+          color2 = Colors.green;
+        });
+      });
 
-    Timer(const Duration(milliseconds: 600), () {
-      setRandomWord();
-    });
+      Timer(const Duration(milliseconds: 400), () {
+        setState(() {
+          color1 = Colors.blue;
+          color2 = Colors.blue;
+        });
+      });
 
+      Timer(const Duration(milliseconds: 600), () {
+        setRandomWord();
+      });
     } else {
-
       setState(() {
         color1 = Colors.red;
         color2 = Colors.red;
       });
 
-          Timer(const Duration(milliseconds: 600), () {
-            setState(() {
-              color1 = Colors.blue;
-              color2 = Colors.blue;
-            });
-            _onReset();
-          });
+      Timer(const Duration(milliseconds: 600), () {
+        setState(() {
+          color1 = Colors.blue;
+          color2 = Colors.blue;
+        });
+        _onReset();
+      });
     }
   }
 
   void _onReset() {
-      setState(() {
-        _seleccion = 0;
-        _contador = 0;
-        setRandomWord();
-      });
-
+    setState(() {
+      _seleccion = 0;
+      _contador = 0;
+      setRandomWord();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Random Words"),
-      ),
-      body: 
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-  
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Text(
-              "Score: $_contador",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 25
-                ),
-            )
-            ),
-
-
-          SizedBox(
-            child: Text(
+        appBar: AppBar(
+          title: const Text("Random Words"),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Align(
+                alignment: Alignment.topRight,
+                child: Text(
+                  "Score: $_contador",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
+                )),
+            SizedBox(
+                child: Text(
               _theState,
               style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 50,
-                color: Colors.white
+                  fontWeight: FontWeight.bold,
+                  fontSize: 50,
+                  color: Colors.white),
+            )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 200.0,
+                  height: 200.0,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: color1,
+                        onPrimary: Colors.white,
+                        side: const BorderSide(color: Colors.white, width: 5),
+                        textStyle: const TextStyle(
+                            fontSize: 40, fontStyle: FontStyle.italic),
+                      ),
+                      onPressed: () => _onPressed(_seleccion = 1),
+                      child: const Text("Noun")),
                 ),
-            )
+                SizedBox(
+                  width: 200.0,
+                  height: 200.0,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: color2,
+                        onPrimary: Colors.white,
+                        side: const BorderSide(color: Colors.white, width: 5),
+                        textStyle: const TextStyle(
+                            fontSize: 40, fontStyle: FontStyle.italic),
+                      ),
+                      onPressed: () => _onPressed(_seleccion = 2),
+                      child: const Text("Adjetive")),
+                ),
+              ],
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                width: 200.0,
-                height: 200.0,
-
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                    primary: color1,
+            SizedBox(
+              width: 80.0,
+              height: 50.0,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
                     onPrimary: Colors.white,
                     side: const BorderSide(color: Colors.white, width: 5),
                     textStyle: const TextStyle(
-                        fontSize: 40,
-                        fontStyle: FontStyle.italic
-                      ),
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
                     ),
-                    onPressed: () => _onPressed(_seleccion = 1), 
-
-                    child: const Text("Noun")),
-              ),
-              SizedBox(
-                width: 200.0,
-                height: 200.0,
-
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                    primary: color2,
-                    onPrimary: Colors.white,
-                    side: const BorderSide(color: Colors.white, width: 5),
-                    textStyle: const TextStyle(
-                        fontSize: 40,
-                        fontStyle: FontStyle.italic
-                      ),
-
-                    ),
-                    onPressed: () => _onPressed(_seleccion = 2), 
-
-                    child: const Text("Adjetive")),
-              ),
-            ],
-          ),
-
-          SizedBox(
-            width: 200.0,
-            height: 50.0,
-
-
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
-                      onPrimary: Colors.white,
-                      side: const BorderSide(color: Colors.white, width: 5),
-                      textStyle: const TextStyle(
-                        fontSize: 30,
-                        fontStyle: FontStyle.italic,
-                      ),
                   ),
-
-                onPressed: () => _onReset(), 
-
-                child: const Text("Reset")),
-          ),
-        ],
-    )
-    );
+                  onPressed: () => _onReset(),
+                  child: const Icon(
+                    Icons.refresh,
+                    size: 50,
+                  )),
+            ),
+          ],
+        ));
   }
-  
 }
